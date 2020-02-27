@@ -1,1 +1,24 @@
-<p>dialogue works!</p>
+<app-select-beverage></app-select-beverage>
+<app-the-usual></app-the-usual>
+
+
+
+    <div *ngIf="displayStrangerText">
+
+        <p>Howdy, stranger. Haven't seen your face around here before. What's your name?
+        </p>
+        <label>Write your firstname here</label>
+        <input type="text" placeholder="stranger" class="inputName" (keyup)="onKeyUpFirstName($event)">
+        <label>Write your lastname here</label>
+        <input type="text" placeholder="stranger" class="inputName" (keyup)="onKeyUpLastName($event)">
+        <button class="saveName" (click)="saveNameButton()">Done!</button>
+
+    </div>
+
+        
+    <div *ngIf="displayNameText">
+        <p >{{welcomeNameText}}</p>
+    </div>
+
+
+
