@@ -1,8 +1,9 @@
-<app-select-beverage></app-select-beverage>
-<app-the-usual></app-the-usual>
 
 
-
+    <p>Displaystrangertext i dialogue: {{displayStrangerText}}</p>
+    <p>Displaybeverages är nu: {{displayBeverages}}</p>
+    <p>Theusualbeverage theUsual--->dialogue: {{theUsualBeverage}}</p>
+    <!-- Kan man lägga en ännu större ngif över allt som ska visas på första sidan? Nej, för man måste också stänga av andra grejer -->
     <div *ngIf="displayStrangerText">
 
         <p>Howdy, stranger. Haven't seen your face around here before. What's your name?
@@ -14,11 +15,46 @@
         <button class="saveName" (click)="saveNameButton()">Done!</button>
 
     </div>
+   
 
-        
-    <div *ngIf="displayNameText">
+
+    <div *ngIf="displayNameText && !displayStrangerText">
         <p >{{welcomeNameText}}</p>
     </div>
 
+    <div *ngIf="displayTheUsual && !displayStrangerText">
+        <app-the-usual (displayTheUsualBeverage)="handleTheUsual($event)"></app-the-usual>
+    </div>
+   
+    <div *ngIf="displayBeverages && !displayStrangerText">
+        
+        <app-select-beverage [chosenBeverage]="theUsualBeverage" ></app-select-beverage>
+    </div>
+    
+    
+    
+
+    <div *ngIf="displayChangeNameForm && !displayStrangerText">
+
+        Do you want to change your name?
+        <input type="text" placeholder="new first name" (keyup)="onKeyUpChangeFirstName($event)">
+        
+        <input type="text" placeholder="new last name" (keyup)="onKeyUpChangeLastName($event)">
+
+        <button (click)="saveChangedName()">Change it!</button>
+    </div>
+
+    <div *ngIf="forgottenUser && !displayStrangerText" class="forgetUser">
+        {{glomdeUser}}
+    </div>
+
+
+   
+       
+   
+    
+   
+    
+    
 
 

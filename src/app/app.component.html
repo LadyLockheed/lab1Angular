@@ -1,2 +1,4 @@
 <app-header></app-header>
-<app-dialogue></app-dialogue>
+<app-dialogue [displayStrangerText]="forgottenUser"></app-dialogue>
+
+<app-right-to-be-forgotten (forgetUser)="handleForgetUser()"></app-right-to-be-forgotten>

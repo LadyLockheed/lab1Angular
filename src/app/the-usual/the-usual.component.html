@@ -1,1 +1,8 @@
-<p>the-usual works!</p>
+{{welcomeBackText}}
+<div *ngIf="displayTheUsualButton">
+    <button (click)="theUsualButton()">The usual</button>
+</div>
+
+<p>The usual beverage i the usual component: {{theUsualBeverage}}</p>
+<p>Displautheusualbeverage i the usual component{{displayTheUsualBeverage}}</p>   
+

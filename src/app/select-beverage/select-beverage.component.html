@@ -1,1 +1,23 @@
-<p>select-beverage works!</p>
+<!-- TODO Fixa så att den inte skriver ut object object när den visar vilken dryck man valde -->
+<div class="beverageContainer">
+    <ng-container *ngIf="displayBeverages">
+       
+        <p *ngFor="let beverage of beverages" class="beverageList">{{beverage.name}}
+            <button (click)="selectBeverageButton(beverage.name)"  class="selectBeverageButton">This one!</button>
+        </p>
+            
+       <div class="ownChoice">
+            <label class="ownChoiceLabel">Or let me know if you want something else </label>
+            <input type="text" placeholder="choice" (keyup)="onKeyUpOwnChoice($event)" class="ownChoiceInput">
+            <button (click)="saveOwnChoiceButton()" class="ownChoiceButton">This!</button>
+       </div>
+           
+        
+    
+            
+            
+    </ng-container>
+</div>
+
+
+<p>{{order}}</p>
