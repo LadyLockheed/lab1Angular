@@ -3,7 +3,7 @@
     <!-- <p>Displaystrangertext i dialogue: {{displayStrangerText}}</p>
     <p>Displaybeverages är nu: {{displayBeverages}}</p> -->
     
-    <!-- Kan man lägga en ännu större ngif över allt som ska visas på första sidan? Nej, för man måste också stänga av andra grejer -->
+    <!-- Visar strangertext och namninput formulär -->
     <div *ngIf="displayStrangerText">
 
         <p>Howdy, stranger. Haven't seen your face around here before. What's your name?
@@ -17,23 +17,17 @@
     </div>
    
 
-
+    <!-- Visar välkommen namn text -->
     <div *ngIf="displayNameText && !displayStrangerText">
         <p >{{welcomeNameText}}</p>
     </div>
-
+    
+    <!-- Visar the usual knapp -->
     <div *ngIf="displayTheUsual && !displayStrangerText">
         <app-the-usual (displayTheUsualBeverage)="handleTheUsual($event)"></app-the-usual>
     </div>
-   
-    <div *ngIf="displayBeverages && !displayStrangerText">
-        
-        <app-select-beverage [chosenBeverage]="theUsualBeverage" ></app-select-beverage>
-    </div>
-    
-    
-    
 
+    <!-- Visar formulär för att ändra sitt namn -->
     <div *ngIf="displayChangeNameForm && !displayStrangerText">
 
         Do you want to change your name?
@@ -44,6 +38,17 @@
         <button (click)="saveChangedName()">Change it!</button>
     </div>
 
+   <!-- Visar dryckeslistan -->
+    <div *ngIf="displayBeverages && !displayStrangerText">
+        
+        <app-select-beverage [chosenBeverage]="theUsualBeverage" ></app-select-beverage>
+    </div>
+    
+    
+    
+
+    
+    <!-- Visar text om man tar bort sitt namn -->
     <div *ngIf="forgottenUser && !displayStrangerText" class="forgetUser">
         {{glomdeUser}}
     </div>
