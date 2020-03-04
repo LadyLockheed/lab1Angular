@@ -6,8 +6,8 @@
     <!-- Visar strangertext och namninput formulär -->
     <div *ngIf="displayStrangerText">
 
-        <p>Howdy, stranger. Haven't seen your face around here before. What's your name?
-        </p>
+        <h3>Howdy, stranger. Haven't seen your face around here before. What's your name?
+        </h3>
         <label>Write your firstname here</label>
         <input type="text" placeholder="stranger" class="inputName" (keyup)="onKeyUpFirstName($event)">
         <label>Write your lastname here</label>
@@ -19,7 +19,7 @@
 
     <!-- Visar välkommen namn text -->
     <div *ngIf="displayNameText && !displayStrangerText">
-        <p >{{welcomeNameText}}</p>
+        <h3 >{{welcomeNameText}}</h3>
     </div>
     
     <!-- Visar the usual knapp -->

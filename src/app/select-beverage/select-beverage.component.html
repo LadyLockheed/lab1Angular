@@ -1,4 +1,6 @@
-
+<!-- <p>Den valda drycken är nu: {{chosenBeverage}}</p>
+<p>Order är: {{order}}</p> -->
+<h3 *ngIf="chosenBeverage" class="order">One {{chosenBeverage}} coming right up!</h3>
 
 <div class="beverageContainer">
     <!-- <ng-container *ngIf="displayBeverages"> -->
@@ -17,9 +19,7 @@
     
 </div>
 
-<!-- <p>Den valda drycken är nu: {{chosenBeverage}}</p>
-<p>Order är: {{order}}</p> -->
-<p *ngIf="chosenBeverage">One {{chosenBeverage}} coming right up!</p>
+
 
 
 
