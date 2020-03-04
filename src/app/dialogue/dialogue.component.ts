@@ -17,7 +17,7 @@ export class DialogueComponent implements OnInit {
   displayBeverages:boolean=false;
   displayTheUsual:boolean=false;
   //ev ta bort denna och återanvänd displaystrangertext
-  // @Input() forgottenUser:boolean;
+  @Input() forgottenUser:boolean;
   glomdeUser:string="Du tog bort mig!";
   displayChangeNameForm:boolean=false;
   changedFirstName:string;
@@ -77,7 +77,6 @@ export class DialogueComponent implements OnInit {
    
   //knappen som sparar namnet man skrivit in
   saveNameButton(){
-    
     
   this.displayStrangerText=false;
   this.displayNameText=true;

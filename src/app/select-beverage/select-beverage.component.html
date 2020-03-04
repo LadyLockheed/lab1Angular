@@ -1,6 +1,7 @@
-<!-- TODO Fixa så att den inte skriver ut object object när den visar vilken dryck man valde -->
+
+
 <div class="beverageContainer">
-    <ng-container *ngIf="displayBeverages">
+    <!-- <ng-container *ngIf="displayBeverages"> -->
        
         <p *ngFor="let beverage of beverages" class="beverageList">{{beverage.name}}
             <button (click)="selectBeverageButton(beverage.name)"  class="selectBeverageButton">This one!</button>
@@ -12,12 +13,13 @@
             <button (click)="saveOwnChoiceButton()" class="ownChoiceButton">This!</button>
        </div>
            
-        
+    <!-- </ng-container> -->
     
-            
-            
-    </ng-container>
 </div>
 
+<!-- <p>Den valda drycken är nu: {{chosenBeverage}}</p>
+<p>Order är: {{order}}</p> -->
+<p *ngIf="chosenBeverage">One {{chosenBeverage}} coming right up!</p>
 
-<p>{{order}}</p>
+
+
