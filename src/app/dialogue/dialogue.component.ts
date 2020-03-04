@@ -28,8 +28,6 @@ export class DialogueComponent implements OnInit {
   constructor(public saloonDataService:SaloonDataService) { }
   
 
-
-  
   ngOnInit(): void {
 
     console.log("Allting börjar här!");
@@ -57,14 +55,11 @@ export class DialogueComponent implements OnInit {
 
   }
 
-
-  //TODO Fixa the usual. den skickas till selectbeverage.
   theUsualBeverage:string;
   handleTheUsual(event){
   this.theUsualBeverage=event;
   }
   
-
   onKeyUpFirstName(event){
     this.inputFirstName=event.target.value;
   }
@@ -74,7 +69,6 @@ export class DialogueComponent implements OnInit {
   }
   
   
-   
   //knappen som sparar namnet man skrivit in
   saveNameButton(){
     
@@ -102,7 +96,7 @@ export class DialogueComponent implements OnInit {
   saveChangedName(){
     this.saloonDataService.saveFirstName(this.changedFirstName)
     this.saloonDataService.saveLastName(this.changedLastName)
-    // this.displayChangeNameForm=false;
+  
    
     //den ändrar namnet i local storage och visar det nya namnet när man uppdaterar sidan, men jag får den inte att uppdatera sig.
     this.inputFirstName=this.saloonDataService.getName();
