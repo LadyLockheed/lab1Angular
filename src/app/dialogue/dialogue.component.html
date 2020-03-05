@@ -9,7 +9,7 @@
         <input type="text" placeholder="stranger" class="inputName" (keyup)="onKeyUpFirstName($event)">
         <label>Write your lastname here</label>
         <input type="text" placeholder="stranger" class="inputName" (keyup)="onKeyUpLastName($event)">
-        <button class="saveName" (click)="saveNameButton()">Done!</button>
+        <button class="saveName" (click)="saveNameButton()" class="saveNameButton">Done!</button>
 
     </div>
    
@@ -31,7 +31,7 @@
         
         <input type="text" placeholder="new last name" (keyup)="onKeyUpChangeLastName($event)">
 
-        <button (click)="saveChangedName()">Change it!</button>
+        <button (click)="saveChangedName()" class="saveChangedNameButton">Change it!</button>
     </div>
 
    <!-- Visar dryckeslistan -->
