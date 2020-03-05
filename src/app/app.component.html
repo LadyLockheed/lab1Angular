@@ -1,4 +1,6 @@
 <app-header></app-header>
-<app-dialogue [displayStrangerText]="forgottenUser"></app-dialogue>
 
-<app-right-to-be-forgotten (forgetUser)="handleForgetUser()"></app-right-to-be-forgotten>
+<app-dialogue [displayStrangerText]="forgottenUser" (userLogedIn)="userLogedIn()"></app-dialogue>
+
+<app-right-to-be-forgotten [userIsForgotten]="forgottenUser" (forgetUser)="handleForgetUser()"></app-right-to-be-forgotten>
+

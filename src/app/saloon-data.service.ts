@@ -6,6 +6,8 @@ import {Beverage} from './beverage.interface'
 })
 export class SaloonDataService {
 
+  constructor() { }
+
   //förnamnet sparas i local storage
   saveFirstName(firstName:string){
     localStorage.setItem('firstName', firstName)
@@ -19,10 +21,6 @@ export class SaloonDataService {
   //namnet hämtas i local storage
   getName() { return localStorage.getItem('firstName') }
 
-  
-
- 
-  
   beveragesDefault:Beverage[]=[
   {name:"Yakmilk"},
   {name:"Non alcoholic water"},
@@ -32,13 +30,10 @@ export class SaloonDataService {
   
   getBeverages(): Beverage[] { 
 
-    console.log("Service- getbeverage: ", JSON.parse(localStorage.getItem("beverages")));
-    
-    
-      if (localStorage.getItem("beverages")==null || localStorage.getItem("beverages")==undefined){
+    if (localStorage.getItem("beverages")==null || localStorage.getItem("beverages")==undefined){
 
         localStorage.setItem("beverages", JSON.stringify(this.beveragesDefault))
-      }
+    }
    
     return JSON.parse(localStorage.getItem("beverages"))
       
@@ -51,8 +46,6 @@ export class SaloonDataService {
   saveSelectedBeverage(selectedBeverage:string){
     
     localStorage.setItem("selectedBeverage",selectedBeverage)
-    console.log("Service. Selected beverage som sparas i local storage är: ", selectedBeverage);
-    
   }
  
   newBeverage;
@@ -79,8 +72,6 @@ export class SaloonDataService {
     localStorage.removeItem('firstName');
     localStorage.removeItem('lastName');
     localStorage.removeItem("beverages");
-    console.log("Service. Funktion emptyLocalStorage.");
-    
 
   }
 
@@ -89,5 +80,5 @@ export class SaloonDataService {
 
  
 
-  constructor() { }
+  
 }

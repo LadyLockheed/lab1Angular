@@ -1,4 +1,4 @@
-import { Component, } from '@angular/core';
+import { Component,Input } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +9,12 @@ export class AppComponent {
   title = 'lab1Angular';
 
 
-  forgottenUser:boolean;
+userLogedIn(){
+  this.forgottenUser=false;
+}
+
+
+  forgottenUser;
   handleForgetUser(){
 
     console.log("från forgotten till app component är forgetuser: ", this.forgottenUser);

@@ -28,8 +28,6 @@ export class DialogueComponent implements OnInit {
   constructor(public saloonDataService:SaloonDataService) { }
   
 
-
-  
   ngOnInit(): void {
 
     console.log("Allting börjar här!");
@@ -57,14 +55,11 @@ export class DialogueComponent implements OnInit {
 
   }
 
-
-  //TODO Fixa the usual. den skickas till selectbeverage.
   theUsualBeverage:string;
   handleTheUsual(event){
   this.theUsualBeverage=event;
   }
   
-
   onKeyUpFirstName(event){
     this.inputFirstName=event.target.value;
   }
@@ -74,23 +69,27 @@ export class DialogueComponent implements OnInit {
   }
   
   
-   
   //knappen som sparar namnet man skrivit in
   saveNameButton(){
     
+    this.displayStrangerText=false;
+    this.displayNameText=true;
+    this.displayBeverages=true;
+    this.displayChangeNameForm=true;
     
-  this.displayStrangerText=false;
-  this.displayNameText=true;
-  this.displayBeverages=true;
-  this.displayChangeNameForm=true;
+    //skriver ut välkomsttext
+    this.welcomeNameText=this.inputFirstName;
   
-  this.welcomeNameText="Alright almighty "+this.inputFirstName+", what can I do you for?"
-    
+      
     //för att skicka till servicefilen
     this.saloonDataService.saveFirstName(this.inputFirstName)
     this.saloonDataService.saveLastName(this.inputLastName)
+    
 
+      this.userLogedIn.emit(this.displayStrangerText)
   }
+  //skickas till appcomponent
+      @Output() userLogedIn=new EventEmitter<boolean>();
 
   onKeyUpChangeFirstName(event){
     this.changedFirstName=event.target.value;
@@ -103,11 +102,11 @@ export class DialogueComponent implements OnInit {
   saveChangedName(){
     this.saloonDataService.saveFirstName(this.changedFirstName)
     this.saloonDataService.saveLastName(this.changedLastName)
-    // this.displayChangeNameForm=false;
-   
-    //den ändrar namnet i local storage och visar det nya namnet när man uppdaterar sidan, men jag får den inte att uppdatera sig.
+  
     this.inputFirstName=this.saloonDataService.getName();
-    this.welcomeNameText="Alright almighty "+this.inputFirstName+", what can I do you for?"
+    
+    this.welcomeNameText=this.inputFirstName
+    // this.welcomeNameText="Alright almighty "+this.inputFirstName+", what can I do you for?"
 
   }
 

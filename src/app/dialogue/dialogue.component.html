@@ -1,13 +1,10 @@
 
-
-    <p>Displaystrangertext i dialogue: {{displayStrangerText}}</p>
-    <p>Displaybeverages är nu: {{displayBeverages}}</p>
-    <p>Theusualbeverage theUsual--->dialogue: {{theUsualBeverage}}</p>
-    <!-- Kan man lägga en ännu större ngif över allt som ska visas på första sidan? Nej, för man måste också stänga av andra grejer -->
+    <!-- Visar strangertext och namninput formulär -->
+    
     <div *ngIf="displayStrangerText">
 
-        <p>Howdy, stranger. Haven't seen your face around here before. What's your name?
-        </p>
+        <h3>Howdy, stranger. Haven't seen your face around here before. What's your name?
+        </h3>
         <label>Write your firstname here</label>
         <input type="text" placeholder="stranger" class="inputName" (keyup)="onKeyUpFirstName($event)">
         <label>Write your lastname here</label>
@@ -16,27 +13,20 @@
 
     </div>
    
-
-
+    <!-- Visar välkommen namn text -->
     <div *ngIf="displayNameText && !displayStrangerText">
-        <p >{{welcomeNameText}}</p>
+       <h3 *ngIf="welcomeNameText">Alright almighty {{welcomeNameText}}. What can I do you for?</h3>
     </div>
-
+    
+    <!-- Visar the usual knapp -->
     <div *ngIf="displayTheUsual && !displayStrangerText">
         <app-the-usual (displayTheUsualBeverage)="handleTheUsual($event)"></app-the-usual>
     </div>
-   
-    <div *ngIf="displayBeverages && !displayStrangerText">
-        
-        <app-select-beverage [chosenBeverage]="theUsualBeverage" ></app-select-beverage>
-    </div>
-    
-    
-    
 
+    <!-- Visar formulär för att ändra sitt namn -->
     <div *ngIf="displayChangeNameForm && !displayStrangerText">
 
-        Do you want to change your name?
+        <label>Do you want to change your name?</label>
         <input type="text" placeholder="new first name" (keyup)="onKeyUpChangeFirstName($event)">
         
         <input type="text" placeholder="new last name" (keyup)="onKeyUpChangeLastName($event)">
@@ -44,6 +34,14 @@
         <button (click)="saveChangedName()">Change it!</button>
     </div>
 
+   <!-- Visar dryckeslistan -->
+    <div *ngIf="displayBeverages && !displayStrangerText">
+        
+        <app-select-beverage [chosenBeverage]="theUsualBeverage" ></app-select-beverage>
+    </div>
+    
+    
+    <!-- Visar text om man tar bort sitt namn -->
     <div *ngIf="forgottenUser && !displayStrangerText" class="forgetUser">
         {{glomdeUser}}
     </div>
