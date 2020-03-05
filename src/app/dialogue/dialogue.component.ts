@@ -84,7 +84,7 @@ export class DialogueComponent implements OnInit {
     //för att skicka till servicefilen
     this.saloonDataService.saveFirstName(this.inputFirstName)
     this.saloonDataService.saveLastName(this.inputLastName)
-    //TODO skicka forgottenuser som false till app component
+    
 
       this.userLogedIn.emit(this.displayStrangerText)
   }
@@ -103,10 +103,8 @@ export class DialogueComponent implements OnInit {
     this.saloonDataService.saveFirstName(this.changedFirstName)
     this.saloonDataService.saveLastName(this.changedLastName)
   
-   
-    //den ändrar namnet i local storage och visar det nya namnet när man uppdaterar sidan, men jag får den inte att uppdatera sig.
     this.inputFirstName=this.saloonDataService.getName();
-    //! Håller på att greja här!
+    
     this.welcomeNameText=this.inputFirstName
     // this.welcomeNameText="Alright almighty "+this.inputFirstName+", what can I do you for?"
 

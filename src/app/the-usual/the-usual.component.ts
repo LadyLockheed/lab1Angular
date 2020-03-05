@@ -30,23 +30,10 @@ export class TheUsualComponent implements OnInit {
    
   }
 
-//TODO vad ska hända när man klickar på the usual knappen? 
-// TODO Den ska ta selectedBeverage från service och ändra på texten i select beverage, det som händer i selectBeverageButton
-
-//Ska jag ha en event emitter och sen skicka this.theUsual till select beverage så den skriver ut det i this.order?
-// usual:string;
   theUsualButton(){
     
-    
-    
     this.displayTheUsualBeverage.emit(this.theUsualBeverage)
-    // this.usual=this.saloonDataService.getSelectedBeverage()
-    console.log("The usual, the usual button, theusualbeverage som skickas till select beverages är: ", this.displayTheUsualBeverage);
-
-    //!Fixar problem: The usual knapp funkar bara en gång.
-   
     
-
   }
  
   //skickar till app dialogue, skickas vidare till select beverage
