@@ -1,3 +1,9 @@
 .forgetUserButton{
     margin-top:5em;
 }
+
+.userIsForgotten{
+    font-family: monospace;
+    font-weight:bold;
+    font-size:2em;
+}

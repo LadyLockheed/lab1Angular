@@ -17,7 +17,7 @@ export class DialogueComponent implements OnInit {
   displayBeverages:boolean=false;
   displayTheUsual:boolean=false;
   //ev ta bort denna och återanvänd displaystrangertext
-  @Input() forgottenUser:boolean;
+  // @Input() forgottenUser:boolean;
   glomdeUser:string="Du tog bort mig!";
   displayChangeNameForm:boolean=false;
   changedFirstName:string;
@@ -72,18 +72,24 @@ export class DialogueComponent implements OnInit {
   //knappen som sparar namnet man skrivit in
   saveNameButton(){
     
-  this.displayStrangerText=false;
-  this.displayNameText=true;
-  this.displayBeverages=true;
-  this.displayChangeNameForm=true;
-  
-  this.welcomeNameText="Alright almighty "+this.inputFirstName+", what can I do you for?"
+    this.displayStrangerText=false;
+    this.displayNameText=true;
+    this.displayBeverages=true;
+    this.displayChangeNameForm=true;
     
+    //skriver ut välkomsttext
+    this.welcomeNameText=this.inputFirstName;
+  
+      
     //för att skicka till servicefilen
     this.saloonDataService.saveFirstName(this.inputFirstName)
     this.saloonDataService.saveLastName(this.inputLastName)
+    //TODO skicka forgottenuser som false till app component
 
+      this.userLogedIn.emit(this.displayStrangerText)
   }
+  //skickas till appcomponent
+      @Output() userLogedIn=new EventEmitter<boolean>();
 
   onKeyUpChangeFirstName(event){
     this.changedFirstName=event.target.value;
@@ -100,7 +106,9 @@ export class DialogueComponent implements OnInit {
    
     //den ändrar namnet i local storage och visar det nya namnet när man uppdaterar sidan, men jag får den inte att uppdatera sig.
     this.inputFirstName=this.saloonDataService.getName();
-    this.welcomeNameText="Alright almighty "+this.inputFirstName+", what can I do you for?"
+    //! Håller på att greja här!
+    this.welcomeNameText=this.inputFirstName
+    // this.welcomeNameText="Alright almighty "+this.inputFirstName+", what can I do you for?"
 
   }
 

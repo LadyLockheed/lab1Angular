@@ -46,7 +46,6 @@ export class SaloonDataService {
   saveSelectedBeverage(selectedBeverage:string){
     
     localStorage.setItem("selectedBeverage",selectedBeverage)
-    
   }
  
   newBeverage;
@@ -73,7 +72,7 @@ export class SaloonDataService {
     localStorage.removeItem('firstName');
     localStorage.removeItem('lastName');
     localStorage.removeItem("beverages");
-    
+
   }
 
   

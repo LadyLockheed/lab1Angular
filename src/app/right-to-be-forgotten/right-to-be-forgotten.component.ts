@@ -11,29 +11,31 @@ export class RightToBeForgottenComponent implements OnInit {
   constructor(public saloonDataService:SaloonDataService) { }
 
   ngOnInit(): void {
+   this.userIsForgotten=false;
   }
 
-
-  forgottenUser:boolean=true;
-
- 
- 
+  //styr om texten glömt bort ska komma upp
+  @Input () userIsForgotten:boolean;
+  forgottenUserText:string="----You are no more----"
+  
+  @Output() forgetUser = new EventEmitter<void>();
+  
   emptyLocalStorageButton(){
+    
+    //anropar funktion som tömmer local storage på allt.
     this.saloonDataService.emptyLocalStorage();
     
-    //TODO boolean displayStrangerText ska skickas från dialogue hit. 
-    //TODO antagligen även boolean för displayBeverages}
-    //TODO Ska jag skapa en ny funktion här i där det skapas massa grejer, templates och annat??? OCh sen skicka den istället för booleanen till dialogue????
-
-    //Detta skickar ett event enbart, för att visa mottagaren att nånting har hänt.
+    //visar "user är borttagen"-text
+    this.userIsForgotten=true;
+    
+    //Detta skickar ett event enbart, för att visa mottagaren att nånting har hänt. Skickas till app component
     this.forgetUser.emit()
-    console.log("från forgotten till app component");
-  console.log("forgotten.ForgetUser är: ", this.forgetUser);
+    
+    
    
-
   }
 
-    @Output() forgetUser = new EventEmitter<void>();
+   
     
 
     

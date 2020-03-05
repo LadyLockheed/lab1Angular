@@ -1,3 +1,4 @@
 
 <button (click)="emptyLocalStorageButton()" class="forgetUserButton">I want to be forgotten, thanks.</button>
 
+<p *ngIf="userIsForgotten" class="userIsForgotten">{{forgottenUserText}}</p>

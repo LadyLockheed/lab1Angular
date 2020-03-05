@@ -1,9 +1,6 @@
 
-
-    <!-- <p>Displaystrangertext i dialogue: {{displayStrangerText}}</p>
-    <p>Displaybeverages är nu: {{displayBeverages}}</p> -->
-    
     <!-- Visar strangertext och namninput formulär -->
+    
     <div *ngIf="displayStrangerText">
 
         <h3>Howdy, stranger. Haven't seen your face around here before. What's your name?
@@ -16,10 +13,9 @@
 
     </div>
    
-
     <!-- Visar välkommen namn text -->
     <div *ngIf="displayNameText && !displayStrangerText">
-        <h3 >{{welcomeNameText}}</h3>
+       <h3 *ngIf="welcomeNameText">Alright almighty {{welcomeNameText}}. What can I do you for?</h3>
     </div>
     
     <!-- Visar the usual knapp -->
@@ -30,7 +26,7 @@
     <!-- Visar formulär för att ändra sitt namn -->
     <div *ngIf="displayChangeNameForm && !displayStrangerText">
 
-        Do you want to change your name?
+        <label>Do you want to change your name?</label>
         <input type="text" placeholder="new first name" (keyup)="onKeyUpChangeFirstName($event)">
         
         <input type="text" placeholder="new last name" (keyup)="onKeyUpChangeLastName($event)">
@@ -44,9 +40,6 @@
         <app-select-beverage [chosenBeverage]="theUsualBeverage" ></app-select-beverage>
     </div>
     
-    
-    
-
     
     <!-- Visar text om man tar bort sitt namn -->
     <div *ngIf="forgottenUser && !displayStrangerText" class="forgetUser">

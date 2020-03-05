@@ -12,9 +12,7 @@ export class SelectBeverageComponent implements OnInit {
   beverages:Beverage[]=[];
   @Input()chosenBeverage:string;
   ownChoice:string;
-  //!Den här funkade inte. Se nedan.
-  // order:string;
-
+ 
   //injecerar från service. saloonDataService kan heta vad som helst. 
   constructor(public saloonDataService:SaloonDataService) { }
 
@@ -23,7 +21,6 @@ export class SelectBeverageComponent implements OnInit {
     this.beverages=this.saloonDataService.getBeverages()
   }
 
-  //!Varför funkar det inte att ha order propertyn här inne och uppdatera? Då står chosen som undefined.
   selectBeverageButton(selectedBeverage: string){
     
     //sätter om chosen till det man skrivit in.
@@ -51,9 +48,6 @@ export class SelectBeverageComponent implements OnInit {
 
   }
   
-  
-  
-
 }
 
 
