@@ -4,3 +4,10 @@
 .forgetUser{
     margin-top:5em;
 }
+
+.saveNameButton{
+    cursor:pointer;
+}
+.saveChangedNameButton{
+    cursor:pointer;
+}

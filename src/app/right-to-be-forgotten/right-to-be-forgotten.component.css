@@ -1,5 +1,6 @@
 .forgetUserButton{
     margin-top:5em;
+    cursor:pointer;
 }
 
 .userIsForgotten{
